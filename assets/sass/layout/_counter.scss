@@ -1,0 +1,156 @@
+@use "../utilities" as *;
+
+/* START: Counter CSS */
+.tj-counter-section {
+	padding-top: 120px;
+	padding-bottom: 120px;
+	background-color: var(--tj-color-theme-bg);
+	overflow: hidden;
+	.sec-heading {
+		max-width: 560px;
+		width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	@media #{$lg} {
+		padding-top: 100px;
+		padding-bottom: 100px;
+	}
+	@media #{$md, $sm, $xs} {
+		padding-top: 80px;
+		padding-bottom: 80px;
+	}
+}
+
+.counter-wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	background-color: var(--tj-color-common-white);
+	@media #{$sm} {
+		max-width: 516px;
+		margin: 0 auto;
+	}
+	@media #{$xs} {
+		justify-content: center;
+	}
+}
+
+.counter-item {
+	position: relative;
+	max-width: 324px;
+	width: 100%;
+	border-right: 1px solid var(--tj-color-border-2);
+	padding: 50px 40px 60px 55px;
+	z-index: 1;
+	&::before {
+		position: absolute;
+		content: "";
+		width: 12px;
+		height: 12px;
+		border-radius: 50%;
+		top: 50%;
+		right: -6px;
+		border: 3px solid var(--tj-color-theme-primary);
+		transform: translateY(-50%);
+		background-color: var(--tj-color-common-white);
+		z-index: 2;
+	}
+	&::after {
+		position: absolute;
+		content: "";
+		width: 20px;
+		height: 20px;
+		border-radius: 50%;
+		top: 50%;
+		right: -10px;
+		transform: translateY(-50%);
+		background-color: var(--tj-color-common-white);
+		z-index: -1;
+	}
+	&:last-child {
+		border-right: none;
+		&::after,
+		&::before {
+			display: none;
+		}
+	}
+	.number {
+		display: flex;
+		align-items: center;
+		color: var(--tj-color-heading-primary);
+		font-family: var(--tj-ff-heading);
+		font-size: 70px;
+		font-weight: var(--tj-fw-sbold);
+		line-height: 1;
+		@media #{$xl} {
+			font-size: 60px;
+		}
+		@media #{$lg} {
+			font-size: 54px;
+		}
+		@media #{$md} {
+			font-size: 44px;
+		}
+		@media #{$sm, $xs} {
+			font-size: 40px;
+		}
+		span {
+			line-height: 1;
+			font-family: inherit;
+		}
+	}
+	.sub-title {
+		line-height: 1;
+		display: block;
+	}
+	@media #{$xl} {
+		max-width: 278px;
+	}
+	@media #{$lg} {
+		max-width: 230px;
+		padding: 50px 30px 60px 31px;
+	}
+	@media #{$md} {
+		max-width: 174px;
+		padding: 30px 20px 35px 20px;
+	}
+	@media #{$sm} {
+		max-width: 258px;
+		padding: 30px 15px 35px 70px;
+		.number {
+			margin-bottom: 10px;
+		}
+		span {
+			line-height: 1.4;
+		}
+		&:nth-child(2) {
+			border-right: none;
+			&::after,
+			&::before {
+				display: none;
+			}
+		}
+	}
+	@media #{$xs} {
+		justify-content: center;
+		max-width: 170px;
+		padding: 30px 15px;
+		text-align: center;
+		&:nth-child(2) {
+			border-right: none;
+			&::after,
+			&::before {
+				display: none;
+			}
+		}
+		.number {
+			margin-bottom: 10px;
+			justify-content: center;
+		}
+		span {
+			line-height: 1.4;
+		}
+	}
+}
+/* !END: Counter CSS */
